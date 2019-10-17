@@ -8,6 +8,7 @@ use Data::Dumper ;
 print ( "Hello !\nPlease type/paste in the full name of the directory you wish to submit\n" ) ;
 my $dir = <STDIN> ;
 chomp $dir ;
+# Substitue all \ for / for Perl to read correctly
 $dir =~ s/\\/\//g ;
 my $date_format = "m/d/yy" ;
 my $output_cell_val ;
@@ -16,7 +17,6 @@ my $date_conversion ;
 my @temp_arr ;
 my $output_xlsx = Excel::Writer::XLSX->new( "output_xlsx.xlsx" ) ;
 my $output_sheet = $output_xlsx->add_worksheet() ;
-# Substitue all \ for / for Perl to read correctly
 
 my $num_files = 0 ;
 while ( $_ = glob( "$dir/*.xlsx" ) )
@@ -56,12 +56,3 @@ while ( $_ = glob( "$dir/*.xlsx" ) )
 	$num_files++ ;
 	# next line in output excel
 }
-
-
-
-
-# sub quicksort 
-# {
-# 	my ( $arr, $low, $high ) = @_ ;
-# 	my 
-# }
